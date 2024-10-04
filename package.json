@@ -7,7 +7,7 @@
     "start": "ts-node ./src/index.ts",
     "start:prod": "npm run build && node dist/index.js",
     "build": "tsc",
-    "test": "jest --collect-coverage",
+    "test": "jest",
     "format": "prettier --write .",
     "prepare": "husky"
   },

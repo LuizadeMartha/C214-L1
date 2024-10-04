@@ -1,4 +1,4 @@
-import { ToDoList, Task } from "./ToDolist"; // Corrigindo o nome do arquivo
+import { ToDoList, Task } from "./ToDoList"; // O nome do arquivo deve ser correto
 
 const anyTask: Task = {
   title: "any_title",
@@ -13,20 +13,19 @@ describe("ToDoList", () => {
   describe("Testing add", () => {
     test("should add a new task to the list", () => {
       const todoInstance = new ToDoList();
-      todoInstance.add(anyTask);
+      todoInstance.add(anyTask); // Adiciona uma tarefa válida
       const tasks = todoInstance.getTasks();
-      expect(tasks).toEqual([anyTask]);
+      expect(tasks).toEqual([anyTask]); // A lista deve conter a tarefa adicionada
     });
 
     test("should not add an invalid task", () => {
       const todoInstance = new ToDoList();
       const invalidValue: unknown = {
-        invalidField: "invalidValue",
+        invalidField: "invalidValue", // Tarefa inválida
       };
 
-      // Expectativa de que um erro será lançado ao tentar adicionar uma tarefa inválida
       expect(() => {
-        todoInstance.add(invalidValue as Task); // Casting para Task
+        todoInstance.add(invalidValue as Task);
       }).toThrow("Invalid task"); // Espera que um erro com essa mensagem seja lançado
 
       const tasks = todoInstance.getTasks();

@@ -12,15 +12,16 @@ export class ToDoList {
 
   add(task: Task): void {
     if (
-      task &&
-      task.title &&
-      task.description &&
-      task.targetDate &&
-      task.type &&
-      task.priority
+      !task ||
+      !task.title ||
+      !task.description ||
+      !task.targetDate ||
+      !task.type ||
+      !task.priority
     ) {
-      this.tasks.push(task);
+      throw new Error("Invalid task"); // Lança erro se a tarefa for inválida
     }
+    this.tasks.push(task);
   }
 
   getTasks(): Task[] {
